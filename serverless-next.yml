@@ -1,6 +1,7 @@
 service: aws-nodejs 
 provider:
   name: aws
-  runtime: nodejs10.x
+  runtime: nodejs20.x
+  deploymentBucket: fortell-bucket
 myNextApplication:
   component: "@sls-next/serverless-component@latest"
