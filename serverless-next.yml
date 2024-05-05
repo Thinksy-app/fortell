@@ -1,7 +1,30 @@
-service: aws-nodejs 
+service: fortell
+
 provider:
   name: aws
-  runtime: nodejs20.x
-  deploymentBucket: fortell-bucket
-myNextApplication:
-  component: "@sls-next/serverless-component@latest"
+  runtime: python3.8
+  region: us-east-1
+  stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "arn:aws:s3:::fortell-bucket/*"
+  environment:
+    # Define environment variables here if needed later
+
+functions:
+  # Placeholder for your backend functions. Define like this:
+  # apiFunction:
+  #   handler: path.to.module.function
+  #   events:
+  #     - http:
+  #         path: example-path
+  #         method: get
+
+resources:
+  Resources:
+    UploadsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: fortell-bucket
