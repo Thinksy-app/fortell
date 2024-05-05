@@ -2,40 +2,19 @@ service: fortell-app
 
 provider:
   name: aws
-  runtime: python3.8  # Default runtime for the Python backend
+  runtime: nodejs20.x
   region: us-east-1
   stage: prod
   environment:
     UPLOAD_BUCKET: fortell-bucket  # Assuming the use of an S3 bucket
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "s3:*"
-      Resource: "arn:aws:s3:::fortell-bucket/*"
 
 # Define the Next.js application deployment
 myNextApplication:
   component: "@sls-next/serverless-component@latest"
   inputs:
     bucketName: ${self:provider.environment.UPLOAD_BUCKET}
-    cloudfront:
+    # cloudfront:
       # CloudFront configurations can be specified here if needed
-    build:
+    # build:
       # Build environment variables specific to the Next.js app
-      env:
-        API_BASE_URL: https://api.example.com
-
-# Python Lambda function for backend operations
-functions:
-  # backendFunction:
-  #   handler: src/lambda.handler
-  #   runtime: python3.8
-  #   environment:
-  #     UPLOAD_BUCKET: ${self:provider.environment.UPLOAD_BUCKET}
-  #   events:
-  #     - http:
-  #         path: /api/function
-  #         method: get
-
-resources:
-  # If additional AWS resources are needed, specify them here
+      # env:
