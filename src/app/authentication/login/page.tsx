@@ -55,7 +55,7 @@ const Login2 = () => {
                     color="textSecondary"
                     mb={1}
                   >
-                    Your pro-forma models
+                    Pro-forma modeling for CFOs
                   </Typography>
                 }
                 subtitle={
