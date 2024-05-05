@@ -4,6 +4,8 @@
 # Next.js build output
 .next
 
+.env.local
+
 ### OSX ###
 # General
 .DS_Store

@@ -1,33 +1,25 @@
 "use client";
-import { baselightTheme } from "@/utils/theme/DefaultColors";
+
+import React from 'react';
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Auth0Provider } from '@auth0/auth0-react';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { baselightTheme } from "@/utils/theme/DefaultColors";
 
 const domain = "dev-zco3hz4hryebuzc0.us.auth0.com";
 const clientId = "CGrUxGB0siKajxkGaBaUKVIcJRyCPjHj";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <Auth0Provider
-          domain={domain}
-          clientId={clientId}
-          // authorizationParams={{
-          //   redirect_uri: window.location.origin
-          // }}          
-        >        
+        <UserProvider>        
           <ThemeProvider theme={baselightTheme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
+            {/* {isAuthenticated ? children : null}  Render children only if authenticated */}
             {children}
           </ThemeProvider>
-        </Auth0Provider>
+        </UserProvider>
       </body>
     </html>
   );

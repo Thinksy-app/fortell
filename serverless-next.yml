@@ -5,8 +5,10 @@ provider:
   runtime: nodejs20.x
   region: us-east-1
   stage: prod
-  environment:
-    UPLOAD_BUCKET: fortell-bucket  # Assuming the use of an S3 bucket
+  deploymentBucket:
+    name: fortell-bucket
+  # environment:
+  #   UPLOAD_BUCKET: fortell-bucket  # Assuming the use of an S3 bucket
 
 # Define the Next.js application deployment
 myNextApplication:
