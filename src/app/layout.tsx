@@ -18,9 +18,9 @@ export default function RootLayout({
         <Auth0Provider
           domain={domain}
           clientId={clientId}
-          authorizationParams={{
-            redirect_uri: window.location.origin
-          }}          
+          // authorizationParams={{
+          //   redirect_uri: window.location.origin
+          // }}          
         >        
           <ThemeProvider theme={baselightTheme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
