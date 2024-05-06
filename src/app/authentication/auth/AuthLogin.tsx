@@ -23,9 +23,9 @@ const LoginButton = () => {
       size="large"
       fullWidth
       component={Link}
-      href="/"
+      href="/api/auth/login"
       type="submit"
-      onClick={() => loginWithRedirect()}
+      // onClick={() => loginWithRedirect()}
     >
     Sign In
     </Button>
